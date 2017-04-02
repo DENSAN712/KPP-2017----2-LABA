@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<NotebookWebApp.Models.Manufacturer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Производители";
 }
 
-<h2>Index</h2>
+<h2>Список производителей ноутбуков</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+<hr />
+<table style="border-spacing: 7px; border-collapse: separate; width: 100%;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -34,12 +32,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Site)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ManufacturerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ManufacturerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ManufacturerID })
+         <td>
+            <button type="button"onclick="location.href='@Url.Action("Edit", "Manufacturer", new { id=item.ManufacturerID })'">Редактировать</button>
+            <button type="button"onclick="location.href='@Url.Action("Delete", "Manufacturer", new { id=item.ManufacturerID })'">Удалить</button>
         </td>
     </tr>
 }
 
 </table>
+<hr />
+<p>
+    <button type="button" onclick="location.href='@Url.Action("Create", "Manufacturer")'">Добавить</button>
+</p

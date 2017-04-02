@@ -1,11 +1,11 @@
 ﻿@model NotebookWebApp.Models.Manufacturer
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Производители";
 }
 
-<h2>Create</h2>
-
+<h2>Добавить нового производителя</h2>
+<hr />
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -37,14 +37,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <button type="button" onclick="location.href='@Url.Action("Index", "Manufacturer")'">Отменить</button>
+            <input type="submit" value="Добавить" />
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
