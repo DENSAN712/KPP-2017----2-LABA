@@ -1,11 +1,11 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #64b0a8;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
+    background-color: #f6f4f0;
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
@@ -99,30 +99,34 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #99bfb5;
     clear: both;
     padding-bottom: 35px;
 }
 
     .main-content {
-        background: url("../Images/accent.png") no-repeat;
         padding-left: 10px;
         padding-top: 30px;
     }
 
     .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
+
     }
+
+header {
+    height:100%;
+}
 
 header .content-wrapper {
     padding-top: 20px; 
+    height: 100%;
 }
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
-    font-size: .8em;
-    height: 100px;
+    background-color: #64b0a8;
+    font-size: 1.3em;
+    height: 100%;
 }
 
 
@@ -180,7 +184,7 @@ footer {
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
-    font-size: 1.3em;
+    font-size: 1.7em;
     font-weight: 600;
     margin: 0 0 5px;
     padding: 0;
@@ -234,15 +238,19 @@ ul#menu {
 /* page titles */
 hgroup.title {
     margin-bottom: 10px;
+    align-content: center;
+    text-align:center;
 }
 
 hgroup.title h1, hgroup.title h2 {
     display: inline;
+    align-content: center;
 }
 
 hgroup.title h2 {
     font-weight: normal;
     margin-left: 3px;
+    align-content: center;
 }
 
 /* features */
@@ -663,6 +671,7 @@ tr.pager td {
     .content-wrapper {
         padding-right: 10px;
         padding-left: 10px;
+        height: 100%;
     }
 
     .featured .content-wrapper {
