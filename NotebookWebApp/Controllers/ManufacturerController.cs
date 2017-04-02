@@ -106,6 +106,14 @@ namespace NotebookWebApp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Manufacturer manufacturer = db.Manufacturers.Find(id);
+
+            ICollection<Notebook> notebookList = manufacturer.Notebooks.ToList();
+
+            foreach (Notebook notebook in notebookList)
+            {
+                db.Notebooks.Remove(notebook);
+            }
+
             db.Manufacturers.Remove(manufacturer);
             db.SaveChanges();
             return RedirectToAction("Index");

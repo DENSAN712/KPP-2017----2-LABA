@@ -167,7 +167,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManufacturerController.cs" />
+    <Compile Include="Controllers\NotebookController.cs" />
     <Compile Include="Controllers\ProcessorController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +181,7 @@
     <Compile Include="Models\Processor.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\NotebookViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -297,6 +300,14 @@
     <Content Include="Views\Processor\Create.cshtml" />
     <Content Include="Views\Processor\Edit.cshtml" />
     <Content Include="Views\Processor\Delete.cshtml" />
+    <Content Include="Views\Notebook\Index.cshtml" />
+    <Content Include="Views\Notebook\Create.cshtml" />
+    <Content Include="Views\Notebook\Edit.cshtml" />
+    <Content Include="Views\Notebook\Delete.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

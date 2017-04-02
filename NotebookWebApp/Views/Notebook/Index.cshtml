@@ -1,0 +1,77 @@
+﻿@model IEnumerable<NotebookWebApp.Models.Notebook>
+
+@{
+    ViewBag.Title = "Ноутбуки";
+}
+
+<h2>Список ноутбуков</h2>
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table style="border-spacing: 7px; border-collapse: separate; width: 100%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monitor)
+        </th>
+        <th>
+            Пользователь
+        </th>
+        <th>
+            Процессор
+        </th>
+         <th>
+            Производитель
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monitor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Processor.Model)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+        </td>
+        <td>
+            <button type="button"onclick="location.href='@Url.Action("Edit", "Notebook", new { id=item.NotebookID })'">Редактировать</button>
+            <button type="button"onclick="location.href='@Url.Action("Delete", "Notebook", new { id=item.NotebookID })'">Удалить</button>
+        </td>
+    </tr>
+}
+
+</table>
+<hr />
+<p>
+    <button type="button" onclick="location.href='@Url.Action("Create", "Notebook")'">Добавить</button>
+</p>

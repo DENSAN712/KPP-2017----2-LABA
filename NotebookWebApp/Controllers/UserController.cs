@@ -9,33 +9,33 @@ using NotebookWebApp.Models;
 
 namespace NotebookWebApp.Controllers
 {
-    public class ProcessorController : Controller
+    public class UserController : Controller
     {
         private NotebookContext db = new NotebookContext();
 
         //
-        // GET: /Processor/
+        // GET: /User/
 
         public ActionResult Index()
         {
-            return View(db.Processors.ToList());
+            return View(db.Users.ToList());
         }
 
         //
-        // GET: /Processor/Details/5
+        // GET: /User/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Processor processor = db.Processors.Find(id);
-            if (processor == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(processor);
+            return View(user);
         }
 
         //
-        // GET: /Processor/Create
+        // GET: /User/Create
 
         public ActionResult Create()
         {
@@ -43,78 +43,78 @@ namespace NotebookWebApp.Controllers
         }
 
         //
-        // POST: /Processor/Create
+        // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(Processor processor)
+        public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
             {
-                db.Processors.Add(processor);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(processor);
+            return View(user);
         }
 
         //
-        // GET: /Processor/Edit/5
+        // GET: /User/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Processor processor = db.Processors.Find(id);
-            if (processor == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(processor);
+            return View(user);
         }
 
         //
-        // POST: /Processor/Edit/5
+        // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Processor processor)
+        public ActionResult Edit(User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(processor).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(processor);
+            return View(user);
         }
 
         //
-        // GET: /Processor/Delete/5
+        // GET: /User/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Processor processor = db.Processors.Find(id);
-            if (processor == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(processor);
+            return View(user);
         }
 
         //
-        // POST: /Processor/Delete/5
+        // POST: /User/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Processor processor = db.Processors.Find(id);
+            User user = db.Users.Find(id);
 
-            ICollection<Notebook> notebookList = processor.Notebooks.ToList();
+            ICollection<Notebook> notebookList = user.Notebooks.ToList();
 
             foreach (Notebook notebook in notebookList)
             {
                 db.Notebooks.Remove(notebook);
             }
 
-            db.Processors.Remove(processor);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

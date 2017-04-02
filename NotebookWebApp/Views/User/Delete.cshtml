@@ -1,0 +1,25 @@
+﻿@model NotebookWebApp.Models.User
+
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+<h2>Удалить пользователя</h2>
+<hr />
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <button type="button" onclick="location.href='@Url.Action("Index", "User")'">Отменить</button>
+        <input type="submit" value="Удалить" /> 
+    </p>
+}

@@ -1,0 +1,103 @@
+﻿@model NotebookWebApp.ViewModels.NotebookViewModel
+
+@{
+    ViewBag.Title = "Ноутбук";
+}
+
+<h2>Добавление нового ноутбука</h2>
+<hr />
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Notebook</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notebook.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notebook.Model)
+            @Html.ValidationMessageFor(model => model.Notebook.Model)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notebook.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notebook.Price)
+            @Html.ValidationMessageFor(model => model.Notebook.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notebook.RAM)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notebook.RAM)
+            @Html.ValidationMessageFor(model => model.Notebook.RAM)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notebook.HDD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notebook.HDD)
+            @Html.ValidationMessageFor(model => model.Notebook.HDD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notebook.Monitor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notebook.Monitor)
+            @Html.ValidationMessageFor(model => model.Notebook.Monitor)
+        </div>
+
+        <div class="editor-label">
+            Производитель
+        </div>
+
+        <div class="editor-field">
+            <select name="Notebook.Manufacturer.ManufacturerID" style="font-size:12pt; width: 310px;">
+                @foreach (var a in Model.Manufacturers)
+                {
+                    <option value="@a.Value"> @a.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            Процессор
+        </div>
+
+        <div class="editor-field">
+            <select name="Notebook.Processor.ProcessorID" style="font-size:12pt; width: 310px;">
+                @foreach (var a in Model.Processors)
+                {
+                    <option value="@a.Value"> @a.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            Пользователь
+        </div>
+
+        <div class="editor-field">
+            <select name="Notebook.User.UserID" style="font-size:12pt; width: 310px;">
+                @foreach (var a in Model.Users)
+                {
+                    <option value="@a.Value"> @a.Text</option>
+                }
+            </select>
+        </div>
+
+        <p>
+            <button type="button" onclick="location.href='@Url.Action("Index", "Notebook")'">Отменить</button>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

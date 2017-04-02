@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NotebookWebApp.Models.User>
+
+@{
+    ViewBag.Title = "Пользователь";
+}
+
+<h2>Список пользователей</h2>
+<hr />
+<table style="border-spacing: 7px; border-collapse: separate; width: 100%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+ <button type="button"onclick="location.href='@Url.Action("Edit", "User", new { id=item.UserID })'">Редактировать</button>
+            <button type="button"onclick="location.href='@Url.Action("Delete", "User", new { id=item.UserID })'">Удалить</button>
+        </td>
+    </tr>
+}
+
+</table>
+<hr />
+<p>
+    <button type="button" onclick="location.href='@Url.Action("Create", "User")'">Добавить</button>
+</p>

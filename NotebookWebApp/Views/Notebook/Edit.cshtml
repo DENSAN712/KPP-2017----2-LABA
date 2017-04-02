@@ -1,0 +1,66 @@
+﻿@model NotebookWebApp.Models.Notebook
+
+@{
+    ViewBag.Title = "Ноутбук";
+}
+
+<h2>Редактировать</h2>
+<hr />
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Notebook</legend>
+
+        @Html.HiddenFor(model => model.NotebookID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RAM)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RAM)
+            @Html.ValidationMessageFor(model => model.RAM)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HDD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HDD)
+            @Html.ValidationMessageFor(model => model.HDD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Monitor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Monitor)
+            @Html.ValidationMessageFor(model => model.Monitor)
+        </div>
+
+        <p>
+            <button type="button" onclick="location.href='@Url.Action("Index", "Notebook")'">Отменить</button>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
